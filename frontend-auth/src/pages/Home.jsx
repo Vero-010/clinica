@@ -13,9 +13,16 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-300 flex flex-col items-center justify-center px-4">
+    
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex flex-col items-center justify-center px-4">
       <header className="w-full max-w-4xl flex justify-between items-center py-6">
-        <h1 className="text-2xl font-bold text-blue-800">MiProyecto</h1>
+      <div className="flex items-start justify-start bg-transparent m-0 p-0">
+      <img
+        src="/imagenes/logo.png"
+        alt="Logo"
+        className="w-[300px] h-auto object-contain m-0 p-0"
+      />
+    </div>
         <nav className="space-x-2">
           {!user ? (
             <>
@@ -45,11 +52,16 @@ const Home = () => {
 
       <main className="flex-1 w-full max-w-3xl text-center py-10">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 leading-tight">
-          Bienvenido a <span className="text-blue-600">MiProyecto</span>
+        <p>
+            Bienvenido a{" "}
+             <span>
+               <span className="text-blue-600">Vet</span>
+               <span className="text-green-600">+cotas</span>
+             </span>
+        </p>
         </h2>
         <p className="text-gray-700 text-lg md:text-xl mb-8">
-          Esta es una aplicación moderna construida con React, Vite y
-          TailwindCSS. Úsala como base para cualquier proyecto web profesional.
+          Más que perros y gatos!
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           {!user ? (
@@ -77,54 +89,67 @@ const Home = () => {
       </main>
 
       <section id="features" className="w-full max-w-6xl py-16 text-center">
-        <h3 className="text-2xl font-bold text-gray-800 mb-6">
-          Características principales
-        </h3>
-        <div className="grid md:grid-cols-3 gap-6 text-gray-700 px-4">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h4 className="font-semibold mb-2">Gestión de Productos</h4>
-            <p>
-              CRUD completo con subida de imágenes, vista previa, edición,
-              búsqueda y paginación desde un panel administrativo.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h4 className="font-semibold mb-2">Scroll Infinito</h4>
-            <p>
-              Vista pública con scroll infinito que carga dinámicamente los
-              productos destacados desde el backend.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h4 className="font-semibold mb-2">Modal de Detalle</h4>
-            <p>
-              Visualización detallada de cada producto al hacer clic, usando
-              modales reutilizables.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h4 className="font-semibold mb-2">Autenticación JWT</h4>
-            <p>
-              Login, registro y protección de rutas mediante tokens. Roles de
-              usuario y administrador diferenciados.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h4 className="font-semibold mb-2">Recuperación de contraseña</h4>
-            <p>
-              Funcionalidad de “¿Olvidaste tu contraseña?” con generación de
-              token, correo de recuperación y formulario de reseteo.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h4 className="font-semibold mb-2">Correos automáticos</h4>
-            <p>
-              Envío de correos automáticos al registrarse y al solicitar
-              recuperación de contraseña usando nodemailer.
-            </p>
-          </div>
-        </div>
-      </section>
+  <h3 className="text-2xl font-bold text-gray-800 mb-6">
+    Nuestros Servicios
+  </h3>
+  <div className="grid md:grid-cols-3 gap-6 text-gray-700 px-4">
+    <div className="bg-white p-6 rounded-lg shadow-md relative overflow-hidden">
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-50"
+        style={{backgroundImage: "url('./imagenes/atencionmedica.jpg')"}}
+      ></div>
+      <div className="relative z-10">
+        <h4 className="font-bold mb-2 text-gray-900 drop-shadow-lg">Atención Médica</h4>
+        <p className="text-gray-800 font-medium drop-shadow-md">
+          Consultas veterinarias, diagnósticos, tratamientos médicos y quirúrgicos. 
+          Atención de emergencias las 24 horas con profesionales especializados.
+        </p>
+      </div>
+    </div>
+    
+    <div className="bg-white p-6 rounded-lg shadow-md relative overflow-hidden">
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-50"
+        style={{backgroundImage: "url('./imagenes/concentrados.jpg')"}}
+      ></div>
+      <div className="relative z-10">
+        <h4 className="font-bold mb-2 text-gray-900 drop-shadow-lg">Concentrados</h4>
+        <p className="text-gray-800 font-medium drop-shadow-md">
+          Alimentos balanceados para perros, gatos y otras mascotas. 
+          Asesoría nutricional personalizada según las necesidades de tu mascota.
+        </p>
+      </div>
+    </div>
+    
+    <div className="bg-white p-6 rounded-lg shadow-md relative overflow-hidden">
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-50"
+        style={{backgroundImage: "url('./imagenes/petshop.jpg')"}}
+      ></div>
+      <div className="relative z-10">
+        <h4 className="font-bold mb-2 text-gray-900 drop-shadow-lg">Pet Shop</h4>
+        <p className="text-gray-800 font-medium drop-shadow-md">
+          Accesorios, juguetes, productos de higiene y 
+          todo lo necesario para el cuidado diario de tu mascota.
+        </p>
+      </div>
+    </div>
+    
+    <div className="bg-white p-6 rounded-lg shadow-md relative overflow-hidden">
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-50"
+        style={{backgroundImage: "url('./imagenes/belleza.jpg')"}}
+      ></div>
+      <div className="relative z-10">
+        <h4 className="font-bold mb-2 text-gray-900 drop-shadow-lg">Estética y Belleza</h4>
+        <p className="text-gray-800 font-medium drop-shadow-md">
+          Baño, corte de pelo, arreglo de uñas y 
+          cuidado completo para mantener a tu mascota limpia y saludable.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       <ProductGallery />
 

@@ -2,22 +2,34 @@ import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// Tus imports
+// Componentes de navegación
+import Navbar from "./components/Navbar";
+
+// Páginas públicas
 import Home from "./pages/Home";
+import MisMascotas from "./pages/mismascotas";
+import Productos from "./pages/Productos"; // Productos y Ofertas
+import Servicios from "./pages/Servicios";
+import CampanasVacunacion from "./pages/CampanasVacunacion";
+import NotFound from "./pages/NotFound";
+
+// Autenticación y acceso
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
-import AdminLayout from "./components/AdminLayout";
-import AdminRoute from "./components/AdminRoute";
-import PrivateRoute from "./components/PrivateRoute";
-import Usuarios from "./pages/admin/UserList";
-import Productos from "./pages/admin/Productos";
-import Reportes from "./pages/admin/Reportes";
-import AdminWelcome from "./components/Welcome";
-import NotFound from "./pages/NotFound";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import PrivateRoute from "./components/PrivateRoute";
+import AdminRoute from "./components/AdminRoute";
 
+// Dashboard
+import Dashboard from "./pages/Dashboard";
+
+// Panel Admin
+import AdminLayout from "./components/AdminLayout";
+import AdminWelcome from "./components/Welcome";
+import Usuarios from "./pages/admin/UserList";
+import ProductosAdmin from "./pages/admin/Productos";
+import Reportes from "./pages/admin/Reportes";
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -30,15 +42,24 @@ const App = () => {
 
   return (
     <Router>
+      {/* Navbar general para todas las rutas */}
+      <Navbar />
+
       <Routes>
-        {/* públicas */}
+        {/* Rutas públicas principales */}
         <Route path="/" element={<Home />} />
+        <Route path="/mis-mascotas" element={<MisMascotas />} />
+        <Route path="/productos" element={<Productos />} />
+        <Route path="/servicios" element={<Servicios />} />
+        <Route path="/campanas-vacunacion" element={<CampanasVacunacion />} />
+
+        {/* Rutas de autenticación */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
 
-        {/* dashboard único */}
+        {/* Ruta protegida para dashboard */}
         <Route
           path="/dashboard"
           element={
@@ -48,7 +69,7 @@ const App = () => {
           }
         />
 
-        {/* rutas protegidas del panel admin */}
+        {/* Rutas del panel de administración protegidas */}
         <Route
           path="/admin"
           element={
@@ -59,15 +80,15 @@ const App = () => {
         >
           <Route index element={<AdminWelcome user={user} />} />
           <Route path="usuarios" element={<Usuarios />} />
-          <Route path="productos" element={<Productos />} />
+          <Route path="productos" element={<ProductosAdmin />} />
           <Route path="reportes" element={<Reportes />} />
         </Route>
 
-        {/* ruta no válida */}
+        {/* Ruta no válida */}
         <Route path="*" element={<NotFound />} />
       </Routes>
 
-      {/* Toastify container global */}
+      {/* Toastify: notificaciones */}
       <ToastContainer
         position="top-right"
         autoClose={3000}

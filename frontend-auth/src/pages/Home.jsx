@@ -11,18 +11,20 @@ const Home = () => {
       setUser(storedUser);
     }
   }, []);
-
   return (
-    
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex flex-col items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex flex-col items-center justify-center">
+      <div 
+        className="relative w-full min-h-screen bg-cover bg-center bg-no-repeat" 
+        style={{backgroundImage: "url('/imagenes/fondo.jpg')"}}
+      >
       <header className="w-full max-w-4xl flex justify-between items-center py-6">
       <div className="flex items-start justify-start bg-transparent m-0 p-0">
-      <img
-        src="/imagenes/logo.png"
-        alt="Logo"
-        className="w-[300px] h-auto object-contain m-0 p-0"
-      />
-    </div>
+         <img
+           src="/imagenes/logo.png"
+           alt="Logo"
+           className="w-[300px] h-auto object-contain m-0 p-0"
+         />
+       </div>
         <nav className="space-x-2">
           {!user ? (
             <>
@@ -60,7 +62,7 @@ const Home = () => {
              </span>
         </p>
         </h2>
-        <p className="text-gray-700 text-lg md:text-xl mb-8">
+        <p className="text-black text-lg md:text-xl mb-8">
           Más que perros y gatos!
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -87,7 +89,7 @@ const Home = () => {
           </a>
         </div>
       </main>
-
+     </div>
       <section id="features" className="w-full max-w-6xl py-16 text-center">
   <h3 className="text-2xl font-bold text-gray-800 mb-6">
     Nuestros Servicios
@@ -154,7 +156,7 @@ const Home = () => {
       <ProductGallery />
 
       <footer className="w-full text-center text-gray-600 py-6">
-        © {new Date().getFullYear()} MiProyecto. Todos los derechos reservados.
+        © {new Date().getFullYear()} Vet+cotas. Todos los derechos reservados.
       </footer>
     </div>
   );

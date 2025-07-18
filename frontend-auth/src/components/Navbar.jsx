@@ -38,16 +38,18 @@ const Navbar = () => {
         imageRendering: "pixelated",
       }}
     >
-      <Link to="/" className="text-xl font-bold">
+      {/* Logo */}
+      <Link to="/" className="text-2xl font-extrabold tracking-wide">
         HuellaVet
       </Link>
 
+      {/* Botón menú hamburguesa */}
       <button
         className="md:hidden focus:outline-none"
         onClick={() => setMenuOpen(!menuOpen)}
       >
         <svg
-          className="w-6 h-6"
+          className="w-7 h-7"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -63,15 +65,16 @@ const Navbar = () => {
 
       {/* Menú móvil */}
       {menuOpen && (
-        <nav className="absolute top-full left-0 w-full bg-black/70 md:hidden z-10 backdrop-blur-sm">
-          <ul className="flex flex-col p-4 gap-3">
+        <nav className="absolute top-full left-0 w-full bg-blue-900/40 md:hidden z-10 backdrop-blur-sm">
+
+          <ul className="flex flex-col p-4 gap-4 text-lg font-bold">
             {navLinks.map((link) => (
               <li key={link.path}>
                 <Link
                   to={link.path}
                   onClick={() => setMenuOpen(false)}
-                  className={`hover:text-yellow-300 ${
-                    location.pathname === link.path ? "text-yellow-300" : ""
+                  className={`hover:text-orange-300 ${
+                    location.pathname === link.path ? "text-orange-300" : ""
                   }`}
                 >
                   {link.name}
@@ -85,7 +88,7 @@ const Navbar = () => {
                   <Link
                     to="/login"
                     onClick={() => setMenuOpen(false)}
-                    className="bg-yellow-500 hover:bg-yellow-600 text-black px-3 py-1 rounded"
+                    className="bg-orange-400 hover:bg-orange-500 text-white px-4 py-2 rounded font-bold"
                   >
                     Iniciar sesión
                   </Link>
@@ -94,7 +97,7 @@ const Navbar = () => {
                   <Link
                     to="/register"
                     onClick={() => setMenuOpen(false)}
-                    className="bg-white text-black hover:bg-gray-300 px-3 py-1 rounded"
+                    className="bg-orange-400 text-white hover:bg-orange-500 px-4 py-2 rounded font-bold"
                   >
                     Registrarse
                   </Link>
@@ -106,7 +109,7 @@ const Navbar = () => {
                   <Link
                     to="/dashboard"
                     onClick={() => setMenuOpen(false)}
-                    className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded"
+                    className="bg-green-500 hover:bg-green-500 text-white px-4 py-2 rounded font-bold"
                   >
                     Dashboard
                   </Link>
@@ -117,7 +120,7 @@ const Navbar = () => {
                       setMenuOpen(false);
                       handleLogout();
                     }}
-                    className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded w-full text-left"
+                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded w-full text-left font-bold"
                   >
                     Cerrar sesión
                   </button>
@@ -129,47 +132,45 @@ const Navbar = () => {
       )}
 
       {/* Menú escritorio */}
-      <div className="hidden md:flex items-center gap-6">
-        <nav className="flex gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`hover:text-yellow-300 ${
-                location.pathname === link.path ? "text-yellow-300" : ""
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
+      <div className="hidden md:flex items-center gap-8">
+        <nav className="flex gap-8">
+  {navLinks.map((link) => (
+    <Link
+      key={link.path}
+      to={link.path}
+      className="hover:text-orange-300 font-bold text-lg tracking-wide"
+    >
+      {link.name}
+    </Link>
+  ))}
+</nav>
 
         {!user ? (
-          <div className="flex gap-3">
+          <div className="flex gap-4">
             <Link
               to="/login"
-              className="bg-yellow-500 hover:bg-yellow-600 text-black px-3 py-1 rounded"
+              className="bg-orange-400 hover:bg-orange-500 text-white px-4 py-2 rounded font-bold"
             >
               Iniciar sesión
             </Link>
             <Link
               to="/register"
-              className="bg-white text-black hover:bg-gray-300 px-3 py-1 rounded"
+              className="bg-orange-400 text-white hover:bg-orange-500 px-4 py-2 rounded font-bold"
             >
               Registrarse
             </Link>
           </div>
         ) : (
-          <div className="flex gap-3">
+          <div className="flex gap-4">
             <Link
               to="/dashboard"
-              className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded"
+              className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded font-bold"
             >
               Dashboard
             </Link>
             <button
               onClick={handleLogout}
-              className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
+              className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded font-bold"
             >
               Cerrar sesión
             </button>

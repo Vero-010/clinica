@@ -17,14 +17,15 @@ const Home = () => {
         className="relative w-full min-h-screen bg-cover bg-center bg-no-repeat" 
         style={{backgroundImage: "url('/imagenes/fondo degradado azul.jpg')"}}
       >
+        {/* Imagen PNG sin fondo encima y ocupando todo el contenedor */}
+  <img
+    src="/imagenes/fondo-ultimo.png"
+    alt="Decoración"
+    className="absolute inset-0 w-full h-full object-contain pointer-events-none"
+    style={{ zIndex: 5 }}
+  />
       <header className="w-full max-w-4xl flex justify-start items-center py-6">
-  <div className="flex items-start justify-start bg-transparent m-0 p-0">
-    <img
-      src="/imagenes/logo.png"
-      alt="Logo"
-      className="w-[300px] h-auto object-contain m-0 p-0"
-    />
-  </div>
+  
 </header>
 
 

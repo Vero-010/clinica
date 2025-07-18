@@ -15,80 +15,21 @@ const Home = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex flex-col items-center justify-center">
       <div 
         className="relative w-full min-h-screen bg-cover bg-center bg-no-repeat" 
-        style={{backgroundImage: "url('/imagenes/fondo.jpg')"}}
+        style={{backgroundImage: "url('/imagenes/fondo degradado azul.jpg')"}}
       >
-      <header className="w-full max-w-4xl flex justify-between items-center py-6">
-      <div className="flex items-start justify-start bg-transparent m-0 p-0">
-         <img
-           src="/imagenes/logo.png"
-           alt="Logo"
-           className="w-[300px] h-auto object-contain m-0 p-0"
-         />
-       </div>
-        <nav className="space-x-2">
-          {!user ? (
-            <>
-              <Link
-                to="/login"
-                className="inline-block px-5 py-2 bg-white text-blue-600 border border-blue-600 rounded-full font-medium hover:bg-blue-50 transition duration-200"
-              >
-                Iniciar Sesión
-              </Link>
-              <Link
-                to="/register"
-                className="inline-block px-5 py-2 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition duration-200"
-              >
-                Registrarse
-              </Link>
-            </>
-          ) : (
-            <Link
-              to="/dashboard"
-              className="inline-block px-5 py-2 bg-green-600 text-white rounded-full font-medium hover:bg-green-700 transition duration-200"
-            >
-              Ir al Dashboard
-            </Link>
-          )}
-        </nav>
-      </header>
+      <header className="w-full max-w-4xl flex justify-start items-center py-6">
+  <div className="flex items-start justify-start bg-transparent m-0 p-0">
+    <img
+      src="/imagenes/logo.png"
+      alt="Logo"
+      className="w-[300px] h-auto object-contain m-0 p-0"
+    />
+  </div>
+</header>
 
-      <main className="flex-1 w-full max-w-3xl text-center py-10">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 leading-tight">
-        <p>
-            Bienvenido a{" "}
-             <span>
-               <span className="text-blue-600">Vet</span>
-               <span className="text-green-600">+cotas</span>
-             </span>
-        </p>
-        </h2>
-        <p className="text-black text-lg md:text-xl mb-8">
-          Más que perros y gatos!
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          {!user ? (
-            <Link
-              to="/login"
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition text-base font-semibold"
-            >
-              Empezar
-            </Link>
-          ) : (
-            <Link
-              to="/dashboard"
-              className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition text-base font-semibold"
-            >
-              Ir al Dashboard
-            </Link>
-          )}
-          <a
-            href="#features"
-            className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-100 transition text-base font-semibold"
-          >
-            Ver más
-          </a>
-        </div>
-      </main>
+
+
+      
      </div>
       <section id="features" className="w-full max-w-6xl py-16 text-center">
   <h3 className="text-2xl font-bold text-gray-800 mb-6">

@@ -65,7 +65,15 @@ const Navbar = () => {
 
       {/* Menú móvil */}
       {menuOpen && (
-        <nav className="absolute top-full left-0 w-full bg-blue-900/40 md:hidden z-10 backdrop-blur-sm">
+       <nav
+  className="absolute top-full left-0 w-full md:hidden z-50 text-white"
+  style={{
+    background: "linear-gradient(to bottom, rgba(0, 145, 255, 0.8), rgba(0, 145, 255, 0.6))",
+    backdropFilter: "blur(6px)",
+  }}
+>
+
+
 
           <ul className="flex flex-col p-4 gap-4 text-lg font-bold">
             {navLinks.map((link) => (

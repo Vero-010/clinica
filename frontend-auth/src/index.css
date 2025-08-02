@@ -1,1 +1,9 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-roboto-slab {
+  font-family: 'Roboto Slab', serif;
+}
+

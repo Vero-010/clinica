@@ -31,6 +31,7 @@ import AdminWelcome from "./components/Welcome";
 import Usuarios from "./pages/admin/UserList";
 import ProductosAdmin from "./pages/admin/Productos";
 import Reportes from "./pages/admin/Reportes";
+import Pets from "./pages/admin/Pets";
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -84,6 +85,7 @@ const App = () => {
           <Route path="usuarios" element={<Usuarios />} />
           <Route path="productos" element={<ProductosAdmin />} />
           <Route path="reportes" element={<Reportes />} />
+          <Route path="mascotas" element={<Pets />} />
         </Route>
 
         {/* Ruta no válida */}

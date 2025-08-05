@@ -11,6 +11,7 @@ import MisMascotas from "./pages/mismascotas";
 import Productos from "./pages/Productos"; // Productos y Ofertas
 import Servicios from "./pages/Servicios";
 import CampanasVacunacion from "./pages/CampanasVacunacion";
+import Adoptame from "./pages/¡Adoptame!"; // 👉 Nueva importación
 import NotFound from "./pages/NotFound";
 
 // Autenticación y acceso
@@ -52,6 +53,7 @@ const App = () => {
         <Route path="/productos" element={<Productos />} />
         <Route path="/servicios" element={<Servicios />} />
         <Route path="/campanas-vacunacion" element={<CampanasVacunacion />} />
+        <Route path="/adoptame" element={<Adoptame />} /> {/* 👉 Nueva ruta */}
 
         {/* Rutas de autenticación */}
         <Route path="/login" element={<Login />} />

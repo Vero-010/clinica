@@ -19,13 +19,15 @@ const Navbar = () => {
     navigate("/login");
   };
 
-  const navLinks = [
-    { name: "Inicio", path: "/" },
-    { name: "Mis Mascotas", path: "/mis-mascotas" },
-    { name: "Productos y Ofertas", path: "/productos" },
-    { name: "Servicios", path: "/servicios" },
-    { name: "Vacunación", path: "/campanas-vacunacion" },
-  ];
+ const navLinks = [
+  { name: "Inicio", path: "/" },
+  ...(user ? [{ name: "Mis Mascotas", path: "/mis-mascotas" }] : []),
+  { name: "Productos y Ofertas", path: "/productos" },
+  { name: "Servicios", path: "/servicios" },
+  { name: "Vacunación", path: "/campanas-vacunacion" },
+  { name: "¡Adoptame!", path: "/adoptame" }
+];
+
 
   return (
     <header

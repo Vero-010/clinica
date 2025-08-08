@@ -7,11 +7,11 @@ import Navbar from "./components/Navbar";
 
 // Páginas públicas
 import Home from "./pages/Home";
-import MisMascotas from "./pages/mismascotas";
-import Productos from "./pages/Productos"; // Productos y Ofertas
+import MisMascotas from "./pages/mismascotas"; // pública
+import Productos from "./pages/Productos";
 import Servicios from "./pages/Servicios";
 import CampanasVacunacion from "./pages/CampanasVacunacion";
-import Adoptame from "./pages/¡Adoptame!"; // 👉 Nueva importación
+import Adoptame from "./pages/¡Adoptame!";
 import NotFound from "./pages/NotFound";
 
 // Autenticación y acceso
@@ -31,7 +31,8 @@ import AdminWelcome from "./components/Welcome";
 import Usuarios from "./pages/admin/UserList";
 import ProductosAdmin from "./pages/admin/Productos";
 import Reportes from "./pages/admin/Reportes";
-import Pets from "./pages/admin/Pets";
+import Pets from "./pages/admin/Pets"; // pública? no, esta es la admin
+import MisMascotasAdmin from "./pages/mismascotas"; // <-- nueva página admin
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -44,25 +45,25 @@ const App = () => {
 
   return (
     <Router>
-      {/* Navbar general para todas las rutas */}
+      {/* Navbar general para todas las rutas públicas */}
       <Navbar />
 
       <Routes>
-        {/* Rutas públicas principales */}
+        {/* Rutas públicas */}
         <Route path="/" element={<Home />} />
         <Route path="/mis-mascotas" element={<MisMascotas />} />
         <Route path="/productos" element={<Productos />} />
         <Route path="/servicios" element={<Servicios />} />
         <Route path="/campanas-vacunacion" element={<CampanasVacunacion />} />
-        <Route path="/adoptame" element={<Adoptame />} /> {/* 👉 Nueva ruta */}
+        <Route path="/adoptame" element={<Adoptame />} />
 
-        {/* Rutas de autenticación */}
+        {/* Autenticación */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
 
-        {/* Ruta protegida para dashboard */}
+        {/* Dashboard usuario */}
         <Route
           path="/dashboard"
           element={
@@ -72,7 +73,7 @@ const App = () => {
           }
         />
 
-        {/* Rutas del panel de administración protegidas */}
+        {/* Admin */}
         <Route
           path="/admin"
           element={
@@ -86,13 +87,14 @@ const App = () => {
           <Route path="productos" element={<ProductosAdmin />} />
           <Route path="reportes" element={<Reportes />} />
           <Route path="mascotas" element={<Pets />} />
+          <Route path="mismascotas" element={<MisMascotasAdmin />} /> {/* <-- nueva ruta admin */}
         </Route>
 
-        {/* Ruta no válida */}
+        {/* 404 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
 
-      {/* Toastify: notificaciones */}
+      {/* Notificaciones */}
       <ToastContainer
         position="top-right"
         autoClose={3000}
